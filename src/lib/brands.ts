@@ -71,7 +71,7 @@ export const MUMMAGODI_BRAND: BrandData = {
       color: "#97C5EB",
       isCarousel: true,
       isPinned: true,
-      thumbnailUrl: "/mummagodi-pinned-slide1.jpg",
+      thumbnailUrl: "/mummagodi-pinned-slide1.jpeg",
       slides: [
         {
           badge: "PINNED • 1/4",
@@ -79,7 +79,7 @@ export const MUMMAGODI_BRAND: BrandData = {
           title: "Meet Mummagodi",
           tagline: "Your Baby Care Partner.",
           highlight: "Pure Care for Little Ones",
-          imageUrl: "/mummagodi-pinned-slide1.jpg",
+          imageUrl: "/mummagodi-pinned-slide1.jpeg",
         },
         {
           badge: "PINNED • 2/4",
@@ -152,7 +152,7 @@ export const MUMMAGODI_BRAND: BrandData = {
       category: "BABY CARE ESSENTIALS",
       color: "#97C5EB",
       isCarousel: true,
-      thumbnailUrl: "/mummagodi-c2-slide1.jpg",
+      thumbnailUrl: "/mummagodi-c2-slide1.jpeg",
       slides: [
         {
           badge: "ESSENTIALS • 1/6",
@@ -160,7 +160,7 @@ export const MUMMAGODI_BRAND: BrandData = {
           title: "Everyday Baby Care Starts With Mummagodi",
           tagline: "Creates brand recall by positioning Mummagodi as an everyday baby-care choice.",
           highlight: "Everyday Baby Care",
-          imageUrl: "/mummagodi-c2-slide1.jpg",
+          imageUrl: "/mummagodi-c2-slide1.jpeg",
         },
         {
           badge: "ESSENTIALS • 2/6",
@@ -252,7 +252,7 @@ export const MUMMAGODI_BRAND: BrandData = {
       category: "BABY CARE TIPS",
       color: "#97C5EB",
       isCarousel: true,
-      thumbnailUrl: "/mummagodi-c3-slide1.jpg",
+      thumbnailUrl: "/mummagodi-c3-slide1.jpeg",
       slides: [
         {
           badge: "BABY CARE • 1/4",
@@ -260,7 +260,7 @@ export const MUMMAGODI_BRAND: BrandData = {
           title: "Stepping Out With Your Little One?",
           tagline: "A save-worthy parenting checklist featuring five essential items for baby outings.",
           highlight: "5 Outing Essentials",
-          imageUrl: "/mummagodi-c3-slide1.jpg",
+          imageUrl: "/mummagodi-c3-slide1.jpeg",
         },
         {
           badge: "BABY CARE • 2/4",

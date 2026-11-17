@@ -639,7 +639,7 @@ const InstagramProfile = React.forwardRef<HTMLDivElement, Props>(
                   handleSetSelectedPost(tile);
                 }}
                 style={{
-                  aspectRatio: "4/5",
+                  aspectRatio: tile.aspectRatio || (brand.slug === "karmaterra" ? "1/1" : "4/5"),
                   background: tile.color,
                   display: "flex",
                   flexDirection: "column",

@@ -29,6 +29,9 @@ export interface PostItem {
     objective?: string;
     creativeMessage?: string;
     benefits?: string[];
+    slidesInfo?: { title: string; desc: string }[];
+    approachTitle?: string;
+    approachItems?: { bold?: string; text: string }[];
   };
 }
 
@@ -578,6 +581,105 @@ export default function PostPreviewModal({ post, onClose, brand, isFullScreen = 
                     {post.whyThisPost}
                   </p>
                 )}
+              </div>
+            )}
+
+            {/* Slides Breakdown Info if available */}
+            {post.strategyDetails?.slidesInfo && post.strategyDetails.slidesInfo.length > 0 && (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 8,
+                }}
+              >
+                {post.strategyDetails.slidesInfo.map((sInfo, sIdx) => (
+                  <div
+                    key={sIdx}
+                    style={{
+                      background: "#F7F4EC",
+                      borderRadius: 10,
+                      padding: "8px 12px",
+                      border: "1px solid #E5DFD3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontFamily: '"Inter", sans-serif',
+                        fontSize: 12,
+                        fontWeight: 700,
+                        color: "#1F1E18",
+                        marginBottom: 3,
+                      }}
+                    >
+                      {sInfo.title}
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: '"Inter", sans-serif',
+                        fontSize: 11.5,
+                        lineHeight: 1.45,
+                        color: "#4A463D",
+                      }}
+                    >
+                      {sInfo.desc}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Overall Profile Building / Approach Section */}
+            {post.strategyDetails?.approachTitle && post.strategyDetails?.approachItems && (
+              <div
+                style={{
+                  background: "#F7F4EC",
+                  borderRadius: 10,
+                  padding: "10px 12px",
+                  border: "1px solid #E5DFD3",
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: '"Inter", sans-serif',
+                    fontSize: 11,
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                    color: "#746E62",
+                    marginBottom: 6,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 5,
+                  }}
+                >
+                  <span>📋</span> {post.strategyDetails.approachTitle}
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+                  {post.strategyDetails.approachItems.map((app, aIdx) => (
+                    <div
+                      key={aIdx}
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: 6,
+                        fontSize: 11.5,
+                        lineHeight: 1.4,
+                        color: "#292820",
+                      }}
+                    >
+                      <span style={{ color: "#929477", fontSize: 12, lineHeight: 1 }}>•</span>
+                      <span>
+                        {app.bold && (
+                          <strong style={{ fontWeight: 600, color: "#1F1E18" }}>
+                            {app.bold}{" "}
+                          </strong>
+                        )}
+                        {app.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
 

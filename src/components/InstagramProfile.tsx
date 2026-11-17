@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import type { AnnotationId } from "@/lib/annotations";
 import PostPreviewModal, { type PostItem } from "./PostPreviewModal";
 import { MUMMAGODI_BRAND, type BrandData } from "@/lib/brands";
@@ -211,6 +211,35 @@ const InstagramProfile = React.forwardRef<HTMLDivElement, Props>(
 
     const isAct = (id: AnnotationId) => active === id;
 
+    // On mobile: smoothly scroll inside the phone to keep active section in comfortable view
+    useEffect(() => {
+      if (!isMobile || !active || !containerRef.current) return;
+      const scrollToActive = () => {
+        if (!containerRef.current) return;
+        if (active === "name") {
+          containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
+          return;
+        }
+        const targetEl = containerRef.current.querySelector(`#section-${active}`) as HTMLElement | null;
+        if (targetEl) {
+          const containerTop = containerRef.current.getBoundingClientRect().top;
+          const targetTop = targetEl.getBoundingClientRect().top;
+          const currentScroll = containerRef.current.scrollTop;
+          const relativeTop = targetTop - containerTop + currentScroll;
+          
+          containerRef.current.scrollTo({
+            top: Math.max(0, relativeTop - 8),
+            behavior: "smooth",
+          });
+        }
+      };
+
+      // Run immediately and also after brief tick to ensure layout is settled
+      scrollToActive();
+      const timer = setTimeout(scrollToActive, 80);
+      return () => clearTimeout(timer);
+    }, [active, isMobile]);
+
     const hover = (_id: AnnotationId): React.CSSProperties => ({
       ...interactiveBase,
       backgroundColor: "transparent",
@@ -243,7 +272,7 @@ const InstagramProfile = React.forwardRef<HTMLDivElement, Props>(
             flexDirection: "column",
             fontFamily: '"Inter", sans-serif',
             color: "#292820",
-            paddingBottom: 2,
+            paddingBottom: isMobile ? 220 : 20,
           }}
         >
           {/* Top bar */}

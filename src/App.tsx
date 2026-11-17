@@ -20,9 +20,20 @@ function getBrandFromLocation(): BrandId {
   return "mummagodi";
 }
 
+function getInitialSection(): AnnotationId {
+  if (typeof window !== "undefined") {
+    const params = new URLSearchParams(window.location.search);
+    const sec = params.get("section") as AnnotationId;
+    if (sec && ORDERED_SECTIONS.includes(sec)) {
+      return sec;
+    }
+  }
+  return "name";
+}
+
 export default function App() {
   const [brandId, setBrandId] = useState<BrandId>(getBrandFromLocation);
-  const [active, setActive] = useState<AnnotationId | null>("name");
+  const [active, setActive] = useState<AnnotationId | null>(getInitialSection);
   const [selectedPost, setSelectedPost] = useState<PostItem | null>(null);
   const [scale, setScale] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
@@ -60,10 +71,11 @@ export default function App() {
       setIsMobile(isNarrow);
 
       if (isNarrow) {
-        // Calculate scale to fit phone width neatly on mobile devices
         const availableW = w - 24;
         const scaleW = availableW / 368;
-        const idealScale = Math.min(0.96, Math.max(0.82, scaleW));
+        const availableH = h - 235;
+        const scaleH = availableH / 746;
+        const idealScale = Math.min(0.86, Math.max(0.62, Math.min(scaleW, scaleH)));
         setScale(idealScale);
       } else {
         const availableH = h - 130;
@@ -196,36 +208,26 @@ export default function App() {
   const activeDef = active ? annotationMap[active] : null;
   const activeIndex = active ? ORDERED_SECTIONS.indexOf(active) : -1;
 
-  const getMobileTranslateY = (section: AnnotationId | null) => {
-    switch (section) {
-      case "name":
-        return 0;
-      case "bio":
-        return -35;
-      case "highlights":
-        return -135;
-      case "grid":
-        return -350;
-      default:
-        return 0;
-    }
+  const getMobileTranslateY = (_section: AnnotationId | null) => {
+    return 0;
   };
 
   return (
     <div
       style={{
         minHeight: "100vh",
-        height: isMobile ? "100dvh" : "100vh",
-        maxHeight: isMobile ? "100dvh" : "100vh",
+        height: isMobile ? "auto" : "100vh",
+        maxHeight: isMobile ? "none" : "100vh",
         width: "100%",
         background: "#F7F4EC",
         display: "flex",
         flexDirection: "column",
         justifyContent: isMobile ? "flex-start" : "space-between",
         alignItems: "center",
-        padding: isMobile ? "6px 12px 6px" : "10px 24px 12px",
+        padding: isMobile ? "8px 12px 10px" : "10px 24px 12px",
         boxSizing: "border-box",
-        overflow: "hidden",
+        overflowY: isMobile ? "auto" : "hidden",
+        overflowX: "hidden",
       }}
     >
       {/* Top Header Bar */}
@@ -336,7 +338,7 @@ export default function App() {
       {/* Main Stage: On Mobile, Info at Top & Phone slides smoothly underneath; On Desktop, Centered with outer doodle arrows */}
       <main
         style={{
-          flex: 1,
+          flex: isMobile ? "0 0 auto" : 1,
           display: "flex",
           flexDirection: "column",
           justifyContent: isMobile ? "flex-start" : "center",
@@ -344,7 +346,7 @@ export default function App() {
           position: "relative",
           width: "100%",
           padding: 0,
-          overflow: "hidden",
+          overflow: isMobile ? "visible" : "hidden",
         }}
       >
         {/* On Mobile View: Strategy Info Card is at the TOP */}
@@ -353,10 +355,10 @@ export default function App() {
             className="mobile-strategy-card"
             style={{
               width: "100%",
-              maxWidth: 366 * scale,
+              maxWidth: Math.max(320, 368 * scale),
               marginBottom: 8,
               flexShrink: 0,
-              maxHeight: "36vh",
+              maxHeight: "26vh",
               display: "flex",
               flexDirection: "column",
             }}
@@ -554,31 +556,30 @@ export default function App() {
           </div>
         )}
 
-        {/* Phone wrapper: On mobile, moves half phone under screen for top items, slides up to reveal post section for grid */}
+        {/* Phone wrapper: scaled and centered on screen */}
         <div
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
           style={{
-            flex: isMobile ? 1 : "none",
+            flex: "0 0 auto",
             width: 368 * scale,
-            height: isMobile ? "100%" : 746 * scale,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
+            height: 746 * scale,
             position: "relative",
-            overflow: isMobile ? "hidden" : "visible",
+            overflow: "visible",
+            margin: "0 auto",
             transition: "width 180ms ease, height 180ms ease",
           }}
         >
           <div
             style={{
-              transform: `scale(${scale}) translateY(${
-                isMobile ? getMobileTranslateY(active) : 0
-              }px)`,
-              transformOrigin: "top center",
-              transition: "transform 420ms cubic-bezier(0.22, 1, 0.36, 1)",
+              position: "absolute",
+              top: 0,
+              left: 0,
               width: 368,
               height: 746,
+              transform: `scale(${scale})`,
+              transformOrigin: "0 0",
+              transition: "transform 420ms cubic-bezier(0.22, 1, 0.36, 1)",
             }}
           >
             <PhoneMockup

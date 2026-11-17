@@ -155,7 +155,6 @@ body,
   flex-direction: column;
   gap: 4px;
   box-sizing: border-box;
-  animation: entranceFadeUp 200ms ease-out forwards;
 }
 
 .mobile-strategy-header {

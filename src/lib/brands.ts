@@ -42,7 +42,7 @@ export const MUMMAGODI_BRAND: BrandData = {
   handle: "mummagodi.diapers",
   proposalTarget: "@mummagodi.diapers",
   category: "Baby & children's care",
-  nameLabel: "Mummagodi™",
+  nameLabel: "Mummagodi",
   avatarUrl: "/mummagodi-pfp.png",
   website: "mummagodi.com",
   stats: {
@@ -135,12 +135,15 @@ export const MUMMAGODI_BRAND: BrandData = {
           },
         ],
         approachTitle: "Overall Profile Building Approach",
+        approachDescription: "We are structuring the profile around four key objectives:",
         approachItems: [
           { bold: "Brand Introduction:", text: "Who we are." },
           { bold: "Product Awareness:", text: "What we offer." },
           { bold: "Parenting Education:", text: "Useful tips for parents." },
           { bold: "Brand Trust & Engagement:", text: "Why parents should connect with Mummagodi." },
         ],
+        approachClosing:
+          "This creates a balanced Instagram presence that feels like a genuine baby-care brand rather than just a product-selling page.",
       },
     },
     {
@@ -399,13 +402,13 @@ export const MUMMAGODI_BRAND: BrandData = {
     {
       id: "name",
       label: "Name Field (SEO)",
-      title: "Mummagodi™ • Baby Care",
+      title: "Mummagodi • Baby Care",
       hook: "Brand Authority + High-Search Keywords",
       sections: [
         {
           title: "Why Is This Important?",
           items: [
-            { bold: "Brand Name:", text: "Mummagodi™ clearly highlights the trademark brand name." },
+            { bold: "Brand Name:", text: "Mummagodi clearly highlights the trademark brand name." },
             { bold: "Search Discovery:", text: "Baby & Children's Care optimizes search visibility for new parents." },
             { bold: "Category Recognition:", text: "New parents instantly understand the brand domain." },
             { bold: "Future-Proof:", text: "Stays relevant as Mummagodi introduces new baby care products." },
@@ -547,7 +550,8 @@ export const KARMATERRA_BRAND: BrandData = {
       category: "BRAND INTRODUCTION",
       color: "#D8C7A2",
       isCarousel: false,
-      thumbnailUrl: "/karmaterra-post2.jpg",
+      aspectRatio: "1/1",
+      thumbnailUrl: "/karma/1.jpeg",
       slides: [
         {
           badge: "BRAND INTRODUCTION",
@@ -555,7 +559,7 @@ export const KARMATERRA_BRAND: BrandData = {
           title: "1. Introducing Karma Terra",
           tagline: "Beauty, Reimagined. Nature-Inspired Care. Rooted in Ayurveda.",
           highlight: "Brand Awareness & First Impression",
-          imageUrl: "/karmaterra-post2.jpg",
+          imageUrl: "/karma/1.jpeg",
         },
       ],
       likes: 3120,
@@ -581,7 +585,8 @@ export const KARMATERRA_BRAND: BrandData = {
       category: "BRAND PHILOSOPHY",
       color: "#D8C7A2",
       isCarousel: false,
-      thumbnailUrl: "/karmaterra-post3.jpg",
+      aspectRatio: "1/1",
+      thumbnailUrl: "/karma/2.jpeg",
       slides: [
         {
           badge: "BRAND PHILOSOPHY",
@@ -589,7 +594,7 @@ export const KARMATERRA_BRAND: BrandData = {
           title: "2. Nature Meets Modern Science",
           tagline: "Rooted in Nature. Refined by Science.",
           highlight: "Brand Trust & Positioning",
-          imageUrl: "/karmaterra-post3.jpg",
+          imageUrl: "/karma/2.jpeg",
         },
       ],
       likes: 2780,
@@ -615,7 +620,8 @@ export const KARMATERRA_BRAND: BrandData = {
       category: "HAIR TREATMENT OIL",
       color: "#D8C7A2",
       isCarousel: false,
-      thumbnailUrl: "/karmaterra-post4.jpg",
+      aspectRatio: "1/1",
+      thumbnailUrl: "/karma/3.jpeg",
       slides: [
         {
           badge: "CHAMPI RITUAL",
@@ -623,7 +629,7 @@ export const KARMATERRA_BRAND: BrandData = {
           title: "3. Bring Back the Champi Ritual",
           tagline: "Your Hair Deserves a Little Tradition.",
           highlight: "Product Awareness & Interest",
-          imageUrl: "/karmaterra-post4.jpg",
+          imageUrl: "/karma/3.jpeg",
         },
       ],
       likes: 2190,
@@ -650,7 +656,8 @@ export const KARMATERRA_BRAND: BrandData = {
       category: "FACIAL OIL",
       color: "#D8C7A2",
       isCarousel: false,
-      thumbnailUrl: "/karmaterra-post5.jpg",
+      aspectRatio: "1/1",
+      thumbnailUrl: "/karma/4.jpeg",
       slides: [
         {
           badge: "KUMKUMADI GLOW",
@@ -658,7 +665,7 @@ export const KARMATERRA_BRAND: BrandData = {
           title: "4. The Timeless Goodness of Kumkumadi",
           tagline: "A Touch of Ayurveda. A Ritual of Glow.",
           highlight: "Product Education & Consideration",
-          imageUrl: "/karmaterra-post5.jpg",
+          imageUrl: "/karma/4.jpeg",
         },
       ],
       likes: 3450,
@@ -684,7 +691,8 @@ export const KARMATERRA_BRAND: BrandData = {
       category: "ULTRA SUNSCREEN",
       color: "#D8C7A2",
       isCarousel: false,
-      thumbnailUrl: "/karmaterra-post6.jpg",
+      aspectRatio: "1/1",
+      thumbnailUrl: "/karma/5.jpeg",
       slides: [
         {
           badge: "DAILY SPF RITUAL",
@@ -692,7 +700,7 @@ export const KARMATERRA_BRAND: BrandData = {
           title: "5. Sunscreen Isn't Just for Sunny Days",
           tagline: "Sun Protection Is an Everyday Ritual.",
           highlight: "Product Awareness & Daily-use Education",
-          imageUrl: "/karmaterra-post6.jpg",
+          imageUrl: "/karma/5.jpeg",
         },
       ],
       likes: 1980,
@@ -718,7 +726,8 @@ export const KARMATERRA_BRAND: BrandData = {
       category: "PERSONALISED SKINCARE",
       color: "#D8C7A2",
       isCarousel: false,
-      thumbnailUrl: "/karmaterra-post1.jpg",
+      aspectRatio: "1/1",
+      thumbnailUrl: "/karma/6.jpg",
       slides: [
         {
           badge: "PERSONAL RITUAL",
@@ -726,7 +735,7 @@ export const KARMATERRA_BRAND: BrandData = {
           title: "6. Your Skin. Your Needs. Your Ritual.",
           tagline: "Skincare Should Be Personal.",
           highlight: "Customer Connection & Engagement",
-          imageUrl: "/karmaterra-post1.jpg",
+          imageUrl: "/karma/6.jpg",
         },
       ],
       likes: 2410,

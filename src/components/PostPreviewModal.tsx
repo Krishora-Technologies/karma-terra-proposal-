@@ -19,6 +19,7 @@ export interface PostItem {
   isCarousel?: boolean;
   isPinned?: boolean;
   thumbnailUrl?: string;
+  aspectRatio?: "1/1" | "4/5";
   slides: PostSlide[];
   likes: number;
   commentsCount: number;
@@ -31,7 +32,9 @@ export interface PostItem {
     benefits?: string[];
     slidesInfo?: { title: string; desc: string }[];
     approachTitle?: string;
+    approachDescription?: string;
     approachItems?: { bold?: string; text: string }[];
+    approachClosing?: string;
   };
 }
 
@@ -124,6 +127,7 @@ export default function PostPreviewModal({ post, onClose, brand, isFullScreen = 
           top: 0,
           zIndex: 100,
           boxShadow: "0 2px 8px rgba(41,40,32,0.05)",
+          flexShrink: 0,
         }}
       >
         <button
@@ -185,7 +189,7 @@ export default function PostPreviewModal({ post, onClose, brand, isFullScreen = 
         style={{
           position: "relative",
           width: "100%",
-          aspectRatio: "4/5",
+          aspectRatio: post.aspectRatio || (brand?.slug === "karmaterra" ? "1/1" : "4/5"),
           background: slide.imageUrl ? "#F7F4EC" : post.color,
           display: "flex",
           flexDirection: "column",
@@ -193,6 +197,7 @@ export default function PostPreviewModal({ post, onClose, brand, isFullScreen = 
           alignItems: "center",
           boxSizing: "border-box",
           overflow: "hidden",
+          flexShrink: 0,
         }}
       >
         {slide.imageUrl ? (
@@ -466,6 +471,7 @@ export default function PostPreviewModal({ post, onClose, brand, isFullScreen = 
             alignItems: "center",
             gap: 5,
             padding: "8px 0 2px",
+            flexShrink: 0,
           }}
         >
           {post.slides.map((_, idx) => (
@@ -630,7 +636,7 @@ export default function PostPreviewModal({ post, onClose, brand, isFullScreen = 
             )}
 
             {/* Overall Profile Building / Approach Section */}
-            {post.strategyDetails?.approachTitle && post.strategyDetails?.approachItems && (
+            {post.strategyDetails?.approachTitle && (
               <div
                 style={{
                   background: "#F7F4EC",
@@ -655,31 +661,43 @@ export default function PostPreviewModal({ post, onClose, brand, isFullScreen = 
                 >
                   <span>📋</span> {post.strategyDetails.approachTitle}
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-                  {post.strategyDetails.approachItems.map((app, aIdx) => (
-                    <div
-                      key={aIdx}
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: 6,
-                        fontSize: 11.5,
-                        lineHeight: 1.4,
-                        color: "#292820",
-                      }}
-                    >
-                      <span style={{ color: "#929477", fontSize: 12, lineHeight: 1 }}>•</span>
-                      <span>
-                        {app.bold && (
-                          <strong style={{ fontWeight: 600, color: "#1F1E18" }}>
-                            {app.bold}{" "}
-                          </strong>
-                        )}
-                        {app.text}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                {post.strategyDetails.approachDescription && (
+                  <p style={{ fontSize: 11.5, lineHeight: 1.45, color: "#4A463D", margin: "0 0 6px" }}>
+                    {post.strategyDetails.approachDescription}
+                  </p>
+                )}
+                {post.strategyDetails.approachItems && post.strategyDetails.approachItems.length > 0 && (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+                    {post.strategyDetails.approachItems.map((app, aIdx) => (
+                      <div
+                        key={aIdx}
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: 6,
+                          fontSize: 11.5,
+                          lineHeight: 1.4,
+                          color: "#292820",
+                        }}
+                      >
+                        <span style={{ color: "#929477", fontSize: 12, lineHeight: 1 }}>•</span>
+                        <span>
+                          {app.bold && (
+                            <strong style={{ fontWeight: 600, color: "#1F1E18" }}>
+                              {app.bold}{" "}
+                            </strong>
+                          )}
+                          {app.text}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {post.strategyDetails.approachClosing && (
+                  <p style={{ fontSize: 11.5, lineHeight: 1.45, color: "#4A463D", margin: "8px 0 0" }}>
+                    {post.strategyDetails.approachClosing}
+                  </p>
+                )}
               </div>
             )}
 

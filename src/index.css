@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ivory: #f7f4ec;
+  --cream: #efe9dc;
+  --charcoal: #292820;
+  --taupe: #898274;
+  --olive: #929477;
+  --sand: #e6d6b9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbars */
+.ig-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.ig-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ig-scroll::-webkit-scrollbar-thumb {
+  background: rgba(137, 130, 116, 0.35);
+  border-radius: 999px;
+}
+
+/* Animations */
+@keyframes entranceFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.entrance-editorial {
+  opacity: 0;
+  animation: entranceFadeUp 600ms ease-out forwards;
+}
+
+.entrance-phone {
+  opacity: 0;
+  animation: entranceFadeUp 700ms ease-out 150ms forwards;
+}
+
+@keyframes phoneFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.phone-float {
+  animation: phoneFloat 5s ease-in-out infinite;
+}
+
+@keyframes doodleBounce {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(4px) rotate(1.5deg);
+  }
+}
+
+.doodle-bounce {
+  animation: doodleBounce 1.4s ease-in-out infinite;
+}
+
+@keyframes arrowFloatAnim {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.doodle-arrow-float {
+  animation: arrowFloatAnim 2s ease-in-out infinite;
+}
+
+@media (min-width: 1024px) {
+  .desktop-doodle-annotation {
+    display: block !important;
+  }
+  .mobile-strategy-card {
+    display: none !important;
+  }
+}
+
+@keyframes targetPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 2px #292820, 0 0 0 4.5px rgba(216, 199, 162, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 2.5px #292820, 0 0 0 7px rgba(216, 199, 162, 0.7);
+  }
+}
+
+@media (max-width: 1023px) {
+  .desktop-doodle-annotation {
+    display: none !important;
+  }
+  .mobile-strategy-card {
+    display: flex !important;
+  }
+
+  /* Target element highlight on mobile */
+  .mobile-active-target {
+    animation: targetPulse 2.2s infinite ease-in-out !important;
+    border-radius: 8px !important;
+    background-color: rgba(239, 233, 220, 0.65) !important;
+    transition: all 180ms ease !important;
+  }
+
+  /* Specific avatar rounding for circle */
+  #section-avatar.mobile-active-target {
+    border-radius: 50% !important;
+  }
+}
+
+/* Mobile Strategy Card styles */
+.mobile-strategy-card {
+  width: 100%;
+  max-width: 366px;
+  background: #efe9dc;
+  border: 1.5px solid #d8c7a2;
+  border-radius: 14px;
+  padding: 10px 13px 8px;
+  box-shadow: 0 6px 20px -5px rgba(41, 40, 32, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-sizing: border-box;
+  animation: entranceFadeUp 200ms ease-out forwards;
+}
+
+.mobile-strategy-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.mobile-strategy-tag {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #292820;
+  color: #f7f4ec;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+.mobile-strategy-title {
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #898274;
+}
+
+.mobile-strategy-text {
+  font-family: "Caveat", cursive;
+  font-size: 22.5px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #292820;
+  text-align: center;
+  margin: 2px 0;
+}
+
+.mobile-strategy-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #eae3d2;
+  padding-top: 8px;
+}
+
+.mobile-nav-btn {
+  background: #f7f4ec;
+  border: 1.5px solid #d8c7a2;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #292820;
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+.mobile-nav-btn:hover {
+  background: #292820;
+  color: #f7f4ec;
+  border-color: #292820;
+}
+
+.mobile-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mobile-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #d8c7a2;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.mobile-dot.active {
+  width: 20px;
+  background: #292820;
+}

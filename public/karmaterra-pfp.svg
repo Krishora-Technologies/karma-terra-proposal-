@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFE9DC" />
+      <stop offset="100%" stop-color="#E5DCB9" />
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#929477" />
+      <stop offset="100%" stop-color="#55583E" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="96" fill="url(#bgGrad)" stroke="#D8C7A2" stroke-width="4" />
+  
+  <!-- Outer subtle circular border -->
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#929477" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6" />
+
+  <!-- Botanical Leaf Icon -->
+  <g transform="translate(100, 95) scale(1.15)">
+    <!-- Main leaf body -->
+    <path d="M 0 -45 C 32 -30 42 12 0 45 C -42 12 -32 -30 0 -45 Z" fill="url(#leafGrad)" />
+    <!-- Leaf vein -->
+    <path d="M 0 -38 L 0 42" stroke="#EFE9DC" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 0 -18 Q 12 -12 20 -8" stroke="#EFE9DC" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.85" />
+    <path d="M 0 -4 Q -12 2 -20 6" stroke="#EFE9DC" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.85" />
+    <path d="M 0 10 Q 12 16 18 20" stroke="#EFE9DC" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.85" />
+  </g>
+
+  <!-- Brand Typography Arc or Text -->
+  <text x="100" y="165" font-family="'Playfair Display', serif" font-size="16" font-weight="700" fill="#292820" text-anchor="middle" letter-spacing="3">KARMA TERRA</text>
+</svg>

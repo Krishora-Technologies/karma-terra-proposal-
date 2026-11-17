@@ -531,11 +531,10 @@ export const KARMATERRA_BRAND: BrandData = {
     following: 142,
   },
   bioLines: [
-    { text: "🌿 Ayurveda Meets Modern Science" },
-    { text: "✨ Thoughtfully crafted skincare & haircare" },
-    { text: "🌸 Discover your personalised beauty ritual" },
-    { text: "🍃 100% Pure • Ancient Indian Botanicals" },
-    { text: "👇 Explore our collection", isBold: true },
+    { text: "Ayurveda Meets Modern Science 🌿" },
+    { text: "Thoughtfully crafted skincare & haircare." },
+    { text: "Discover your personalised beauty ritual." },
+    { text: "↓ Explore our collection", isBold: true },
   ],
   highlights: [
     { name: "Our Story", img: "/karmaterra-hl-story.png" },
